@@ -11,7 +11,7 @@ class ThreadedXMLRPCServer(ThreadingMixIn, SimpleXMLRPCServer):
     pass
 
 # Carpeta base permitida
-BASE_DIR =  # Reemplaza con la ruta de la carpeta permitida
+BASE_DIR = r"C:\Users\avfmo\Documents\Servicios web\RPC\Servicios\Servicio_carpeta_remota\my-python-cli-project\src\Archivos" # Reemplaza con la ruta de la carpeta permitida
 
 # Historial de rutas
 path_history = [BASE_DIR]

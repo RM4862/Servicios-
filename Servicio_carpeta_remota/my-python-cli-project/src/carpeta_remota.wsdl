@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="CarpetaRemotaService"
+             targetNamespace="http://carpetaremota.example.com/wsdl"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://carpetaremota.example.com/wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición de tipos de datos -->
+  <types>
+    <xsd:schema targetNamespace="http://carpetaremota.example.com/wsdl">
+      
+      <!-- Tipos para register_user -->
+      <xsd:element name="RegisterUserRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="username" type="xsd:string"/>
+            <xsd:element name="password" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+      <xsd:element name="RegisterUserResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+      <!-- Tipos para list_directory -->
+      <xsd:element name="ListDirectoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="username" type="xsd:string"/>
+            <xsd:element name="password" type="xsd:string"/>
+            <xsd:element name="path" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+      <xsd:element name="ListDirectoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+      <!-- Tipo para FileEntry -->
+      <xsd:complexType name="DirectoryContents">
+        <xsd:sequence>
+          <xsd:element name="current_path" type="xsd:string"/>
+          <xsd:element name="contents" type="tns:StringArray"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      
+      <xsd:complexType name="StringArray">
+        <xsd:sequence>
+          <xsd:element name="item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      
+    </xsd:schema>
+  </types>
+
+  <!-- Definición de mensajes -->
+  <message name="RegisterUserInput">
+    <part name="parameters" element="tns:RegisterUserRequest"/>
+  </message>
+  
+  <message name="RegisterUserOutput">
+    <part name="parameters" element="tns:RegisterUserResponse"/>
+  </message>
+  
+  <message name="ListDirectoryInput">
+    <part name="parameters" element="tns:ListDirectoryRequest"/>
+  </message>
+  
+  <message name="ListDirectoryOutput">
+    <part name="parameters" element="tns:ListDirectoryResponse"/>
+  </message>
+
+  <!-- Definición de portType (interfaz) -->
+  <portType name="CarpetaRemotaPortType">
+    <operation name="RegisterUser">
+      <input message="tns:RegisterUserInput"/>
+      <output message="tns:RegisterUserOutput"/>
+    </operation>
+    
+    <operation name="ListDirectory">
+      <input message="tns:ListDirectoryInput"/>
+      <output message="tns:ListDirectoryOutput"/>
+    </operation>
+  </portType>
+
+  <!-- Definición de binding (vinculación) -->
+  <binding name="CarpetaRemotaBinding" type="tns:CarpetaRemotaPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <operation name="RegisterUser">
+      <soap:operation soapAction="http://carpetaremota.example.com/RegisterUser"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    
+    <operation name="ListDirectory">
+      <soap:operation soapAction="http://carpetaremota.example.com/ListDirectory"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <!-- Definición del servicio -->
+  <service name="CarpetaRemotaService">
+    <port name="CarpetaRemotaPort" binding="tns:CarpetaRemotaBinding">
+      <soap:address location="http://localhost:8080/soap"/>
+    </port>
+  </service>
+</definitions>

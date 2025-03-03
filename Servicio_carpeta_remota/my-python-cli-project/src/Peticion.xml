@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Archivo de peticiones XML-RPC (Peticion.xml) -->
+<peticiones>
+  <!-- Petición 1: Registro de usuario -->
+  <llamadaMetodo>
+    <nombreMetodo>registrar_usuario</nombreMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>usuario1</string></valor>
+      </parametro>
+      <parametro>
+        <valor><string>contraseña123</string></valor>
+      </parametro>
+    </parametros>
+  </llamadaMetodo>
+
+  <!-- Petición 2: Listado de directorio raíz -->
+  <llamadaMetodo>
+    <nombreMetodo>listar_directorio</nombreMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>usuario1</string></valor>
+      </parametro>
+      <parametro>
+        <valor><string>contraseña123</string></valor>
+      </parametro>
+      <parametro>
+        <valor><string>/</string></valor>
+      </parametro>
+    </parametros>
+  </llamadaMetodo>
+
+  <!-- Petición 3: Listado de subdirectorio -->
+  <llamadaMetodo>
+    <nombreMetodo>listar_directorio</nombreMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>usuario1</string></valor>
+      </parametro>
+      <parametro>
+        <valor><string>contraseña123</string></valor>
+      </parametro>
+      <parametro>
+        <valor><string>carpeta1</string></valor>
+      </parametro>
+    </parametros>
+  </llamadaMetodo>
+</peticiones>

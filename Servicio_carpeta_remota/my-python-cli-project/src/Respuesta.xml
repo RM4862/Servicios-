@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Archivo de respuestas XML-RPC (Respuesta.xml) -->
+<respuestas>
+  <!-- Respuesta 1: Registro exitoso -->
+  <respuestaMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>Usuario 'usuario1' registrado exitosamente.</string></valor>
+      </parametro>
+    </parametros>
+  </respuestaMetodo>
+
+  <!-- Respuesta 2: Listado de directorio exitoso -->
+  <respuestaMetodo>
+    <parametros>
+      <parametro>
+        <valor>
+          <struct>
+            <miembro>
+              <nombre>ruta_actual</nombre>
+              <valor><string>C:\Users\avfmo\Documents\Servicios web\RPC\Servicios\Servicio_carpeta_remota\my-python-cli-project\src\Archivos</string></valor>
+            </miembro>
+            <miembro>
+              <nombre>contenido</nombre>
+              <valor>
+                <array>
+                  <datos>
+                    <valor><string>archivo1.txt</string></valor>
+                    <valor><string>carpeta1</string></valor>
+                    <valor><string>documento.pdf</string></valor>
+                  </datos>
+                </array>
+              </valor>
+            </miembro>
+          </struct>
+        </valor>
+      </parametro>
+    </parametros>
+  </respuestaMetodo>
+
+  <!-- Respuesta 3: Error de autenticación -->
+  <respuestaMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>Error: Autenticación fallida.</string></valor>
+      </parametro>
+    </parametros>
+  </respuestaMetodo>
+
+  <!-- Respuesta 4: Error de acceso denegado -->
+  <respuestaMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>Error: Acceso denegado a la ruta '../../../'.</string></valor>
+      </parametro>
+    </parametros>
+  </respuestaMetodo>
+
+  <!-- Respuesta 5: Carpeta vacía -->
+  <respuestaMetodo>
+    <parametros>
+      <parametro>
+        <valor><string>La carpeta 'carpeta1' está vacía. Ruta actual: C:\Users\...\carpeta1</string></valor>
+      </parametro>
+    </parametros>
+  </respuestaMetodo>
+</respuestas>
